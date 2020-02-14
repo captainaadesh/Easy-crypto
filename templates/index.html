@@ -1,0 +1,29 @@
+ 
+{% extends "layout.html" %}
+
+{% block main %}
+ <div class="row">
+    <form class="col s12" method="POST" action="/encrypted_data">
+     <div class="row">
+       <div class="input-field col s12">
+         <textarea name="textarea" id="textarea" class="materialize-textarea" required></textarea>
+         <label for="textarea">Enter text you want to encrypt</label>
+        </div>
+            <div class="input-field col s6">
+              <input name="seed" id="seed" type="password" class="validate" required>
+              <label for="seed">Enter Seed Value</label>
+            </div>
+              <div class="input-field col s6"> 
+                 <input name="n" id="n" type="number" class="validate" required>
+                 <label for="n">Enter number of list</label>
+              </div>
+           &nbsp;&nbsp;
+            <center>
+              <button class="btn waves-effect waves-light red" type="submit" name="action">Encrypt
+                <i class="material-icons right">lock_outline</i>
+              </button>
+            </center>
+      </div>
+    </form> 
+  </div>
+{% endblock %}
