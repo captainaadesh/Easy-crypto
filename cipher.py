@@ -32,17 +32,17 @@ class EasyCrypto:
 
 	def encrypt(self, text):
 		final=""
-		for i, letter in enumerate(text):
-			temp = self.__substitute(self.__all_char, self.__list_of_random_lists[i%self.__number_of_lists], letter)
+		random_int = [random.randint(0,self.__number_of_lists-1) for x in range(len(text))]
+
+		for (letter,l_num) in zip(text,random_int):
+			temp = self.__substitute(self.__all_char, self.__list_of_random_lists[l_num], letter)
 			final += temp
 		return final
 
 	def decrypt(self, text):
 		final=""
-		for i, letter in enumerate(text):
-			temp = self.__substitute(self.__list_of_random_lists[i%self.__number_of_lists], self.__all_char, letter)
+		random_int = [random.randint(0,self.__number_of_lists-1) for x in range(len(text))]
+		for (letter,l_num) in zip(text,random_int):
+			temp = self.__substitute(self.__list_of_random_lists[l_num], self.__all_char, letter)
 			final += temp
 		return final
-
-	def update_key(self, key):
-		self.__init__(key)
